@@ -1,4 +1,5 @@
 import React from "react";
+import { ToastsContext } from "../ToastProvider";
 import {
   AlertOctagon,
   AlertTriangle,
@@ -18,7 +19,8 @@ const ICONS_BY_VARIANT = {
   error: AlertOctagon,
 };
 
-function Toast({ id, toasts, setToasts, variant, children }) {
+function Toast({ id, variant, children }) {
+  const { toasts, setToasts } = React.useContext(ToastsContext);
   const Icon = ICONS_BY_VARIANT[variant];
 
   return (
